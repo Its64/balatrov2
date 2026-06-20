@@ -9,9 +9,15 @@
 <body>
     <div class="game-container">
         <header class="stats-bar">
-            <div class="stat">SCORE: <span id="scoreDisplay" class="highlight">200</span></div>
-            <div class="stat">SPINS: <span id="spinCountDisplay" style="color: var(--accent-gold); font-weight: 900;">0</span></div>
+            <div class="stat">
+                SCORE:<br>
+                <span id="scoreDisplay" class="highlight">200</span>
+            </div>
             <div class="stat status-effects" id="statusDisplay">READY</div>
+            <div class="stat">
+                SPINS:<br>
+                <span id="spinCountDisplay" style="color: var(--accent-gold); font-weight: 900; font-size: 1.8rem;">0</span>
+            </div>
         </header>
 
         <main class="wheel-section">
@@ -20,10 +26,10 @@
                 <canvas id="wheelCanvas" width="400" height="400"></canvas>
             </div>
             <div class="action-buttons">
-                <button id="spinBtn" class="primary-btn">SPIN (10)</button>
+                <button id="spinBtn" class="primary-btn">SPIN</button>
                 <button id="restartBtn" class="primary-btn" style="display: none;">RESTART</button>
             </div>
-            <p id="actionLog" class="log-text">REACH 1000 POINTS TO WIN</p>
+            <p id="actionLog" class="log-text">REACH 1000 POINTS</p>
         </main>
 
         <aside class="shop-section">
@@ -36,16 +42,16 @@
                     CLEANSE (25)<br><small>CLEAR DEBUFFS</small>
                 </button>
                 <button class="shop-btn" data-action="addEntry100" data-cost="100" id="add100btn">
-                    +100 SLICE (100)<br><small>POWERFUL GAIN</small>
+                    +100 (100)<br><small>POWERFUL GAIN</small>
                 </button>
                 <button class="shop-btn" data-action="addEntry50" data-cost="50" id="add50btn">
-                    +50 SLICE (50)<br><small>ADD SLICE</small>
+                    +50 (50)<br><small>ADD SLICE</small>
                 </button>
                 <button class="shop-btn" data-action="buyMultiplier" data-cost="150">
-                    MULTIPLIER (150)<br><small>2X FOR 3 SPINS</small>
+                    MULT (150)<br><small>2X FOR 3</small>
                 </button>
                 <button class="shop-btn" data-action="deleteNegative" data-cost="75">
-                    REMOVE BAD (75)<br><small>DELETE NEGATIVE</small>
+                    DELETE (75)<br><small>REMOVE BAD</small>
                 </button>
             </div>
         </aside>
