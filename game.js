@@ -22,6 +22,37 @@ function insertAtRandomIndex(entry) {
     state.slots.splice(randomIndex, 0, entry);
 }
 
+// --- Score Animation Helper ---
+function animateScoreChange(oldScore, newScore) {
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const difference = newScore - oldScore;
+    
+    // Add pop animation to the score number
+    scoreDisplay.classList.remove('score-increase', 'score-decrease');
+    void scoreDisplay.offsetWidth; // Trigger reflow to restart animation
+    
+    if (difference > 0) {
+        scoreDisplay.classList.add('score-increase');
+    } else if (difference < 0) {
+        scoreDisplay.classList.add('score-decrease');
+    }
+    
+    // Create floating text indicator
+    const floatElement = document.createElement('div');
+    floatElement.className = `score-float ${difference > 0 ? 'positive' : 'negative'}`;
+    floatElement.textContent = (difference > 0 ? '+' : '') + difference;
+    
+    // Position it at the score display
+    const scoreRect = scoreDisplay.getBoundingClientRect();
+    floatElement.style.left = scoreRect.left + 'px';
+    floatElement.style.top = scoreRect.top + 'px';
+    
+    document.body.appendChild(floatElement);
+    
+    // Remove the floating element after animation
+    setTimeout(() => floatElement.remove(), 1000);
+}
+
 // --- Initial Wheel Setup ---
 function initializeWheel() {
     state.slots = [
@@ -82,7 +113,10 @@ function drawWheel() {
 function spinWheel() {
     if (state.isSpinning || state.score <= 0) return;
     state.isSpinning = true;
+    
+    const oldScore = state.score;
     state.score -= 10
+    animateScoreChange(oldScore, state.score);
     updateUI();
 
     const canvas = document.getElementById('wheelCanvas');
@@ -106,7 +140,9 @@ function resolveSpin() {
     let hitIndex = Math.floor((360 - normalizedRotation + 270) % 360 / sliceAngle);
     const result = state.slots[hitIndex];
 
+    const oldScore = state.score;
     applyResult(result);
+    animateScoreChange(oldScore, state.score);
     handlePostSpinChanges(); 
     
     if (state.multiplierSpinsLeft > 0) {
@@ -236,7 +272,9 @@ document.querySelectorAll('.shop-btn').forEach(btn => {
         const cost = parseInt(btn.dataset.cost);
         
         if (state.score >= cost && !state.isSpinning) {
+            const oldScore = state.score;
             state.score -= cost;
+            animateScoreChange(oldScore, state.score);
             shopActions[action]();
             document.getElementById('actionLog').innerText = `Purchased: ${btn.innerText.split('(')[0].trim()}`;
             updateUI();
