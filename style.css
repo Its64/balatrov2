@@ -1,28 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Londrina+Solid:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 :root {
-    --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-    --panel-bg: rgba(255, 255, 255, 0.95);
-    --secondary-bg: rgba(255, 255, 255, 0.8);
-    --text-dark: #2d3748;
-    --text-light: #ffffff;
-    --accent-bright: #ff6b6b;
-    --accent-pink: #ff85c0;
-    --accent-purple: #a78bfa;
-    --accent-green: #34d399;
-    --accent-yellow: #fbbf24;
-    --accent-blue: #60a5fa;
-    --danger-color: #ff6b6b;
-    --border-radius: 20px;
-    --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.15);
-    --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.2);
+    --bg-color-1: #1a0d2e;
+    --bg-color-2: #16213e;
+    --bg-color-3: #0f3460;
+    --panel-bg: #1d1d2d;
+    --card-bg: #2d2d3d;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0c0;
+    --accent-gold: #ffd700;
+    --accent-purple: #b19cd9;
+    --accent-red: #ff6b6b;
+    --accent-green: #52e552;
+    --accent-blue: #4da6ff;
+    --border-radius: 12px;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.6);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.8);
 }
 
 body {
-    font-family: 'Fredoka', sans-serif;
-    background: var(--bg-gradient);
-    color: var(--text-dark);
+    font-family: 'Press Start 2P', cursive;
+    background: linear-gradient(135deg, var(--bg-color-1) 0%, var(--bg-color-2) 50%, var(--bg-color-3) 100%);
+    color: var(--text-primary);
     margin: 0;
     padding: 20px;
     display: flex;
@@ -36,14 +36,14 @@ body {
     display: grid;
     grid-template-columns: 1.8fr 1fr;
     grid-template-rows: auto 1fr;
-    gap: 25px;
+    gap: 20px;
     max-width: 1000px;
     width: 100%;
-    padding: 30px;
+    padding: 25px;
     background: var(--panel-bg);
-    border-radius: 40px;
-    box-shadow: var(--shadow-lg);
-    backdrop-filter: blur(10px);
+    border: 3px solid var(--accent-gold);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg), inset 0 0 20px rgba(255, 215, 0, 0.1);
 }
 
 .stats-bar {
@@ -51,11 +51,12 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
-    padding: 20px;
-    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
-    border-radius: 25px;
+    padding: 18px;
+    background: var(--card-bg);
+    border: 2px solid var(--accent-purple);
+    border-radius: var(--border-radius);
     font-weight: 700;
-    color: var(--text-light);
+    color: var(--text-primary);
     box-shadow: var(--shadow-md);
 }
 
@@ -64,21 +65,21 @@ body {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    font-size: 1.3rem;
+    font-size: 0.7rem;
     text-align: center;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 12px 15px;
-    border-radius: 15px;
-    backdrop-filter: blur(5px);
+    background: rgba(176, 176, 192, 0.1);
+    padding: 12px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--accent-purple);
 }
 
 .highlight {
-    color: var(--accent-yellow);
-    font-size: 1.8rem;
+    color: var(--accent-gold);
+    font-size: 1rem;
     position: relative;
     display: inline-block;
-    font-family: 'Londrina Solid', cursive;
-    font-weight: 900;
+    font-family: 'Press Start 2P', cursive;
+    font-weight: 700;
 }
 
 .highlight.score-increase {
@@ -92,43 +93,47 @@ body {
 @keyframes scorePopPositive {
     0% {
         transform: scale(1) rotate(0deg);
-        color: var(--accent-yellow);
+        color: var(--accent-gold);
+        text-shadow: 0 0 0px rgba(255, 215, 0, 0);
     }
     50% {
         transform: scale(1.4) rotate(5deg);
-        color: #fef08a;
-        filter: brightness(1.5) drop-shadow(0 0 15px rgba(251, 191, 36, 0.8));
+        color: var(--accent-green);
+        text-shadow: 0 0 20px rgba(82, 229, 82, 0.8);
     }
     100% {
         transform: scale(1) rotate(0deg);
-        color: var(--accent-yellow);
+        color: var(--accent-gold);
+        text-shadow: 0 0 0px rgba(255, 215, 0, 0);
     }
 }
 
 @keyframes scorePopNegative {
     0% {
         transform: scale(1) rotate(0deg);
-        color: var(--accent-yellow);
+        color: var(--accent-gold);
+        text-shadow: 0 0 0px rgba(255, 215, 0, 0);
     }
     50% {
         transform: scale(1.4) rotate(-5deg);
-        color: var(--danger-color);
-        filter: brightness(1.5) drop-shadow(0 0 15px rgba(255, 107, 107, 0.8));
+        color: var(--accent-red);
+        text-shadow: 0 0 20px rgba(255, 107, 107, 0.8);
     }
     100% {
         transform: scale(1) rotate(0deg);
-        color: var(--accent-yellow);
+        color: var(--accent-gold);
+        text-shadow: 0 0 0px rgba(255, 215, 0, 0);
     }
 }
 
 .score-float {
     position: fixed;
-    font-weight: 900;
-    font-size: 2.5rem;
+    font-weight: 700;
+    font-size: 1.5rem;
     pointer-events: none;
     z-index: 1000;
-    text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    font-family: 'Londrina Solid', cursive;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    font-family: 'Press Start 2P', cursive;
 }
 
 .score-float.positive {
@@ -137,7 +142,7 @@ body {
 }
 
 .score-float.negative {
-    color: var(--danger-color);
+    color: var(--accent-red);
     animation: floatDownPoppy 1s cubic-bezier(0.2, 1, 0.3, 1) forwards;
 }
 
@@ -164,9 +169,9 @@ body {
 }
 
 .status-effects {
-    font-size: 1rem;
-    color: var(--text-light);
-    font-weight: 600;
+    font-size: 0.6rem;
+    color: var(--accent-purple);
+    font-weight: 700;
     grid-column: 1 / -1;
     text-align: center;
 }
@@ -176,10 +181,11 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 18px;
     padding: 20px;
-    background: linear-gradient(135deg, rgba(240, 147, 251, 0.1) 0%, rgba(102, 126, 234, 0.1) 100%);
-    border-radius: 30px;
+    background: var(--card-bg);
+    border: 2px solid var(--accent-blue);
+    border-radius: var(--border-radius);
 }
 
 .wheel-container {
@@ -192,11 +198,12 @@ body {
     top: -25px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 2.5rem;
-    color: var(--accent-pink);
+    font-size: 1.8rem;
+    color: var(--accent-gold);
     z-index: 10;
-    text-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
     animation: pointerBounce 1.5s ease-in-out infinite;
+    font-family: 'Press Start 2P', cursive;
 }
 
 @keyframes pointerBounce {
@@ -205,11 +212,13 @@ body {
 }
 
 canvas {
-    border-radius: 50%;
-    box-shadow: var(--shadow-lg), 0 0 40px rgba(255, 107, 107, 0.2);
+    border-radius: 0;
+    border: 3px solid var(--accent-gold);
+    box-shadow: var(--shadow-lg), 0 0 30px rgba(255, 215, 0, 0.3);
     transition: transform 4s cubic-bezier(0.1, 0.8, 0.2, 1);
-    background: white;
-    padding: 5px;
+    background: #0a0a0f;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
 }
 
 .action-buttons {
@@ -221,127 +230,146 @@ canvas {
 }
 
 .primary-btn, .shop-btn {
-    font-family: 'Londrina Solid', cursive;
+    font-family: 'Press Start 2P', cursive;
     font-weight: 700;
-    border: none;
-    border-radius: 18px;
+    border: 2px solid var(--accent-gold);
+    border-radius: 4px;
     cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: all 0.15s ease;
     box-shadow: var(--shadow-sm);
-    font-size: 1rem;
+    font-size: 0.65rem;
     position: relative;
     overflow: hidden;
+    background: var(--card-bg);
+    color: var(--text-primary);
 }
 
 .primary-btn {
-    background: linear-gradient(135deg, var(--accent-pink) 0%, var(--accent-bright) 100%);
-    color: white;
-    padding: 14px 32px;
-    font-size: 1.1rem;
+    background: linear-gradient(135deg, var(--card-bg) 0%, rgba(255, 215, 0, 0.1) 100%);
+    color: var(--accent-gold);
+    padding: 12px 24px;
+    border: 2px solid var(--accent-gold);
+    font-size: 0.65rem;
 }
 
 .primary-btn:hover:not(:disabled) {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+    transform: translate(-2px, -2px);
+    box-shadow: 2px 2px 0 var(--accent-gold), 4px 4px 0 rgba(0, 0, 0, 0.5);
+    background: rgba(255, 215, 0, 0.2);
 }
 
 .primary-btn:active:not(:disabled) {
-    transform: translateY(-1px) scale(0.98);
+    transform: translate(0, 0);
+    box-shadow: 0 0 0 var(--accent-gold);
 }
 
 .primary-btn:disabled {
-    background: #ccc;
-    color: #999;
+    background: #1a1a2a;
+    color: #555;
+    border-color: #555;
     cursor: not-allowed;
-    opacity: 0.6;
+    opacity: 0.5;
 }
 
 #restartBtn {
-    background: linear-gradient(135deg, #ff9a56 0%, #ff6b6b 100%) !important;
-    animation: pulse 2s ease-in-out infinite;
+    background: linear-gradient(135deg, var(--card-bg) 0%, rgba(255, 107, 107, 0.1) 100%) !important;
+    border-color: var(--accent-red) !important;
+    color: var(--accent-red) !important;
+    animation: pulse 1.5s ease-in-out infinite;
 }
 
 @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7); }
+    50% { box-shadow: 0 0 0 8px rgba(255, 107, 107, 0); }
 }
 
 .log-text {
     margin: 0;
     text-align: center;
-    height: 28px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--text-dark);
-    background: rgba(251, 191, 36, 0.15);
+    height: auto;
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    background: rgba(255, 215, 0, 0.1);
     padding: 10px 15px;
-    border-radius: 12px;
-    border-left: 4px solid var(--accent-yellow);
+    border-radius: 4px;
+    border: 2px solid var(--accent-gold);
 }
 
 .shop-section {
-    background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-blue) 100%);
-    padding: 25px;
-    border-radius: 30px;
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    border: 2px solid var(--accent-red);
     box-shadow: var(--shadow-md);
 }
 
 .shop-section h2 {
     margin: 0 0 15px 0;
-    color: white;
-    font-family: 'Londrina Solid', cursive;
-    font-size: 1.8rem;
+    color: var(--accent-red);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
     text-align: center;
-    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
 }
 
 .shop-items {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
 }
 
 .shop-btn {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
-    color: var(--text-dark);
+    background: var(--card-bg);
+    color: var(--text-primary);
     text-align: left;
-    padding: 14px 16px;
-    font-size: 0.95rem;
-    border: 2px solid transparent;
+    padding: 12px 14px;
+    font-size: 0.6rem;
+    border: 2px solid var(--accent-blue);
+    border-radius: 4px;
     box-shadow: var(--shadow-sm);
 }
 
 .shop-btn:hover:not(:disabled) {
-    transform: translateX(4px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    border-color: rgba(255, 255, 255, 0.5);
+    transform: translate(-2px, -2px);
+    box-shadow: 2px 2px 0 var(--accent-blue), 4px 4px 0 rgba(0, 0, 0, 0.5);
+    background: rgba(77, 166, 255, 0.1);
+    border-color: var(--accent-blue);
 }
 
 .shop-btn:active:not(:disabled) {
-    transform: translateX(2px) scale(0.98);
+    transform: translate(0, 0);
+    box-shadow: 0 0 0 var(--accent-blue);
 }
 
 .shop-btn small {
     display: block;
-    font-weight: 500;
-    color: #888;
+    font-weight: 600;
+    color: var(--text-secondary);
     margin-top: 4px;
-    opacity: 0.9;
+    font-size: 0.5rem;
 }
 
 .shop-btn:disabled {
-    background: #e0e0e0;
-    color: #999;
+    background: #1a1a2a;
+    color: #555;
+    border-color: #555;
     cursor: not-allowed;
     opacity: 0.5;
+}
+
+/* Retro pixel-perfect styling */
+* {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
 }
 
 /* Responsive Design */
 @media (max-width: 900px) {
     .game-container {
         grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 20px;
+        gap: 18px;
+        padding: 18px;
     }
 
     .stats-bar {
@@ -349,20 +377,20 @@ canvas {
     }
 
     canvas {
-        width: 350px;
-        height: 350px;
+        width: 320px;
+        height: 320px;
     }
 
     .shop-section {
-        padding: 20px;
+        padding: 18px;
     }
 
     .shop-items {
-        gap: 10px;
+        gap: 9px;
     }
 
     .stat {
-        font-size: 1.1rem;
+        font-size: 0.65rem;
     }
 }
 
@@ -372,35 +400,40 @@ canvas {
     }
 
     .game-container {
-        border-radius: 25px;
-        padding: 15px;
-        gap: 15px;
+        border-radius: 8px;
+        padding: 12px;
+        gap: 12px;
     }
 
     canvas {
-        width: 280px;
-        height: 280px;
+        width: 260px;
+        height: 260px;
+        border-width: 2px;
     }
 
     .stats-bar {
         grid-template-columns: 1fr;
         gap: 10px;
-        padding: 15px;
-        border-radius: 20px;
+        padding: 12px;
+        border-width: 2px;
     }
 
     .stat {
-        font-size: 1rem;
-        padding: 10px 12px;
+        font-size: 0.6rem;
+        padding: 10px 8px;
     }
 
     .primary-btn {
-        padding: 12px 24px;
-        font-size: 1rem;
+        padding: 10px 18px;
+        font-size: 0.55rem;
     }
 
     .shop-btn {
-        font-size: 0.9rem;
-        padding: 12px 14px;
+        font-size: 0.55rem;
+        padding: 10px 12px;
+    }
+
+    .shop-btn small {
+        font-size: 0.48rem;
     }
 }
