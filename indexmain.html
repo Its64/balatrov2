@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheel of Risk</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="stats-bar">
+            <div class="stat">Score: <span id="scoreDisplay" class="highlight">100</span> / 1000</div>
+            <div class="stat">Spins: <span id="spinCountDisplay">0</span></div>
+            <div class="stat status-effects" id="statusDisplay"></div>
+        </header>
+
+        <main class="wheel-section">
+            <div class="wheel-container">
+                <div class="wheel-pointer">▼</div>
+                <canvas id="wheelCanvas" width="400" height="400"></canvas>
+            </div>
+            <button id="spinBtn" class="primary-btn">SPIN WHEEL (10 points)</button>
+            <button id="restartBtn" class="primary-btn" style="background-color: var(--danger-color); margin-top: 10px; display: none;">RESTART GAME</button>
+            <p id="actionLog" class="log-text">Welcome! Reach 1000 points to win.</p>
+        </main>
+
+        <aside class="shop-section">
+            <h2>The Shop</h2>
+            <div class="shop-items">
+                <button class="shop-btn" data-action="buyShield" data-cost="50">
+                    Buy Shield (50 pts)<br><small>Cancels next point decrease</small>
+                </button>
+                <button class="shop-btn" data-action="buyCleanse" data-cost="25">
+                    Cleanse (25 pts)<br><small>Remove all bad effects</small>
+                </button>
+                <button class="shop-btn" data-action="addEntry100" data-cost="100" id="add100btn">
+                    Add +100 Entry (100 pts)<br><small>Adds a +100 slice</small>
+                </button>
+                <button class="shop-btn" data-action="addEntry50" data-cost="50" id="add50btn">
+                    Add +50 Entry (50 pts)<br><small>Adds a +50 slice</small>
+                </button>
+                <button class="shop-btn" data-action="buyMultiplier" data-cost="150">
+                    Double Additions (150 pts)<br><small>x2 points for 3 spins</small>
+                </button>
+                <button class="shop-btn" data-action="deleteNegative" data-cost="75">
+                    Delete Negative (75 pts)<br><small>Removes a random bad entry</small>
+                </button>
+            </div>
+        </aside>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
